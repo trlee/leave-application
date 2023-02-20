@@ -1,0 +1,40 @@
+{{template "base" . }}
+
+{{define "content"}}
+
+
+<form method="POST" action="http://localhost:8081/approveLeave" >
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-sm-6 mt-3">
+            <h1 class="text-danger mt-3">Leave Application</h1>
+            <hr>
+            <div class="mb-3 row">
+              <label for="email_input" class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="email_input" name="email_input" value={{.}} required />
+              </div>
+            </div>                
+            <div class="mb-3 row">
+              <label for="duration_input" class="col-sm-2 col-form-label">Duration</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="duration_input" name="duration_input" required />
+              </div>
+            </div>
+            <div class="mb-3 row mb-3">
+              <label for="reason_input" class="col-sm-2 col-form-label">Reason</label>
+              <div class="col-sm-10">
+                <input type="reason_input" class="form-control" id="reason_input" name="reason_input" required />
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <div class="col-sm text-end">
+                <button type="submit" class="btn btn-danger" id="submit_button">Submit</button>
+             </div>
+           </div>
+        </div>
+    </div>
+</div>
+</form>
+
+{{end}}
