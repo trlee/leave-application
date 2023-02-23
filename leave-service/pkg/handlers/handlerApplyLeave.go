@@ -11,7 +11,7 @@ type payloadNewApplication struct {
 	Email     string `json:"email"`
 	LeaveType string `json:"leaveType"`
 	LeaveDate string `json:"leaveDate"`
-	HalfDay   string `json:halfDay`
+	HalfDay   string `json:"halfDay"`
 	Reason    string `json:"applyReason"`
 }
 

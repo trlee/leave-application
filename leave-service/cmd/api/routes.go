@@ -10,7 +10,10 @@ func multiplexer() http.Handler {
 
 	// Statics route public
 	mux.HandleFunc("/leave", handlers.Repo.LeaveReport)
-	mux.HandleFunc("/leave/apply", handlers.Repo.ApplyLeave)
+	mux.HandleFunc("/leaveApplications", handlers.Repo.LeaveApplication)
+	mux.HandleFunc("/leaveApply", handlers.Repo.ApplyLeave)
+	mux.HandleFunc("/leaveAdd", handlers.Repo.AddLeave)
+	mux.HandleFunc("/getAllLeaveApplication", handlers.Repo.GetAllLeaveApplication)
 
 	return mux
 }

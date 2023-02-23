@@ -22,11 +22,14 @@ type User struct {
 	// TerminatedAt string    `json:"terminated_at"`
 }
 type jsonResponse struct {
-	Data []User
+	Error   bool   `json:"error"`
+	Message string `json:"message"`
+	Data    any    `json:"data,omitempty"`
 }
+
 type templateData struct {
 	Nickname string
-	Data     []User
+	Data     any
 }
 
 // Home is the handler func executed after middleware validation

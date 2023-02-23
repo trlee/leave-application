@@ -8,8 +8,9 @@ import (
 )
 
 func (rep *Repository) LeaveApplication(w http.ResponseWriter, r *http.Request) {
-	myc := r.Context().Value(httpContext).(httpContextStruct)
-	all, err := rep.App.Models.LeaveApplication.GetAllApplications(myc.User.Email)
+	// myc := r.Context().Value(httpContext).(httpContextStruct)
+	email := "admin@thundersoft.com"
+	all, err := rep.App.Models.LeaveApplication.GetAllApplications(email)
 	if err != nil {
 		log.Println("error while fetching all applications", err)
 	}

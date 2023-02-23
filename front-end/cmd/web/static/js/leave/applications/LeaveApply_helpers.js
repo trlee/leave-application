@@ -1,3 +1,0 @@
-class LeaveApply_Helpers{
-    
-}

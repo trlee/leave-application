@@ -26,6 +26,7 @@ func multiplexer() http.Handler {
 	mux.Handle("/mailer", handlers.Middleware(http.HandlerFunc(handlers.Repo.Mailer)))
 	mux.Handle("/demo", handlers.Middleware(http.HandlerFunc(handlers.Repo.Demo)))
 	mux.Handle("/testing", handlers.Middleware(http.HandlerFunc(handlers.Repo.Testing)))
-	mux.Handle("/leave", handlers.Middleware(http.HandlerFunc(handlers.Repo.Leave)))
+	mux.Handle("/leave/", handlers.Middleware(http.HandlerFunc(handlers.Repo.Leave)))
+
 	return mux
 }

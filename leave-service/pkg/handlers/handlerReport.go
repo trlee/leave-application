@@ -8,11 +8,10 @@ import (
 )
 
 func (rep *Repository) LeaveReport(w http.ResponseWriter, r *http.Request) {
-	myc := r.Context().Value(httpContext).(httpContextStruct)
-	requestPayload := ReportPayload{
-		Email: myc.User.Email,
-	}
-	all, err := rep.App.Models.EmployeeLeave.GetAllLeaves(requestPayload.Email)
+	log.Println("I'm here!!")
+	//myc := r.Context().Value(httpContext).(httpContextStruct)
+	email := "admin@thundersoft.com"
+	all, err := rep.App.Models.EmployeeLeave.GetAllLeaves(email)
 	if err != nil {
 		log.Println("error while fetching all leaves", err)
 	}
