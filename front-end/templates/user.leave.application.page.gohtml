@@ -1,0 +1,38 @@
+{{template "leave" . }}
+
+{{define "content"}}
+
+    <div class="row">
+      <div class="col-sm">
+      <table id="leaveApplication" class="display stripe" style="width:100%">
+      <thead>
+          <tr>
+              <th>id</th>
+              <th>leavetypeid</th>
+              <th>employeeid</th>
+              <th>leavetype</th>
+              <th>applyreason</th>
+              <th>approved</th>
+              <th>cancelled</th>
+              <th>rejectreason</th>
+              <th>cancelreason</th>
+              <th>approvedat</th>
+              <th>approvedby</th>
+              <th>leavedate</th>
+              <th>attachments</th>
+          </tr>
+      </thead>
+      <tbody id="leaveApplicationBody"></tbody>
+     </table>
+      <br>
+      </div>
+    </div>
+  </div>
+
+{{end}}
+
+{{define "js"}}
+<script src="/static/js/leave/applications/LeaveApplication_helpers.js"></script>
+<script src="/static/js/leave/applications/LeaveApplication_API.js"></script>
+<script src="/static/js/leave/applications/leaveApplication.js"></script>
+{{end}}

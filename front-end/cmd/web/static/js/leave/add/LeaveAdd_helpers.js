@@ -1,3 +1,3 @@
-class LeaveAdd_Helpers{
+class LeaveAdd_Helpers {
     
 }

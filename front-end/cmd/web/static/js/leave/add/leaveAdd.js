@@ -1,17 +1,8 @@
-const Common = new Main_Helpers(),
+const   Common = new Main_Helpers(),
         Helpers = new LeaveAdd_Helpers(),
         API = new LeaveAdd_API()
 
-const myTimeout = 10000
-
 window.addEventListener('DOMContentLoaded', () => {
-    name
-maxLimit
-entitlementCalc
-gender
-isUnpaid
-isAttachmentMandatory
-isEncashmentLeave
     const myRIF = [ 'name', 'maxLimit', 'entitlementCalc', 'gender'],
         myForm = 'addLeaveForm'
 
@@ -25,7 +16,7 @@ isEncashmentLeave
         const error = Common.validateRequiredFields(myRIF)
         if (error == '0'){
             myData = Common.getForm(myForm)
-            API.addLeave(myData).then(resp => {
+            TypeAPI.addLeave(myData).then(resp => {
                 console.log(resp)
             })
         }
@@ -44,5 +35,4 @@ isEncashmentLeave
     myWarningMessage.addEventListener('click', () => {
         Common.hideDivByID('warningMessageDiv')
     })
-    
 })

@@ -86,7 +86,7 @@ func showLeaveHome(w http.ResponseWriter, myc httpContextStruct) {
 
 	// Render the page
 	if myc.Auth {
-		render.RenderTemplate(w, "user.leave.page.gohtml", td)
+		render.RenderTemplate(w, "user.leave.application.page.gohtml", td)
 	} else {
 		var empty any
 		render.RenderTemplate(w, "unauthorized.page.gohtml", empty)

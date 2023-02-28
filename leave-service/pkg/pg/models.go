@@ -30,24 +30,24 @@ type Models struct {
 }
 
 type LeaveType struct {
-	ID                     int     `json:"id"`
-	LeaveType              string  `json:"leave_type"`
+	ID                     int     `json:"ID"`
+	LeaveType              string  `json:"leaveType"`
 	Unpaid                 bool    `json:"unpaid"`
 	Limit                  int     `json:"limit"`
-	EntitlementCalculation float32 `json:"entitlement_calculation"`
+	EntitlementCalculation float32 `json:"entitlementCalculation"`
 	Gender                 int     `json:"gender"`
-	AttachmentMandatory    bool    `json:"attachment_mandatory"`
-	EncashmentLeave        bool    `json:"encashment_leave"`
+	AttachmentMandatory    bool    `json:"attachmentMandatory"`
+	EncashmentLeave        bool    `json:"encashmentLeave"`
 }
 
 type EmployeeLeave struct {
-	ID            int     `json:"id"`
-	LeaveTypeID   int     `json:"leave_type_id"`
-	LeaveType     string  `json:"leave_type"`
+	ID            int     `json:"ID"`
+	LeaveTypeID   int     `json:"leaveTypeID"`
+	LeaveType     string  `json:"leaveType"`
 	Entitled      float32 `json:"entitled"`
 	Taken         float32 `json:"taken"`
-	CreditExpired float32 `json:"credit_expired"`
-	EmployeeID    int     `json:"employee_id"`
+	CreditExpired float32 `json:"creditExpired"`
+	EmployeeID    int     `json:"employeeID"`
 }
 
 type LeaveApplication struct {
@@ -68,9 +68,9 @@ type LeaveApplication struct {
 
 type LeaveApplicationTest struct {
 	Email     string `json:"email"`
-	LeaveType int    `json:"leave_type"`
-	LeaveDate string `json:"leave_date"`
-	HalfDay   bool   `json:"half_day"`
+	LeaveType int    `json:"leaveType"`
+	LeaveDate string `json:"leaveDate"`
+	HalfDay   bool   `json:"halfDay"`
 	Reason    string `json:"reason"`
 }
 
