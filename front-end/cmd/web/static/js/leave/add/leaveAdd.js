@@ -1,6 +1,5 @@
-const   Common = new Main_Helpers(),
-        Helpers = new LeaveAdd_Helpers(),
-        API = new LeaveAdd_API()
+const   AddHelpers = new LeaveAdd_Helpers(),
+        AddAPI = new LeaveAdd_API()
 
 window.addEventListener('DOMContentLoaded', () => {
     const myRIF = [ 'name', 'maxLimit', 'entitlementCalc', 'gender'],
@@ -16,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const error = Common.validateRequiredFields(myRIF)
         if (error == '0'){
             myData = Common.getForm(myForm)
-            TypeAPI.addLeave(myData).then(resp => {
+            AddAPI.addLeave(myData).then(resp => {
                 console.log(resp)
             })
         }

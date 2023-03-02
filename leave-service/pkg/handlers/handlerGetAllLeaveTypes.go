@@ -1,9 +1,12 @@
 package handlers
 
-import "net/http"
+import (
+	"log"
+	"net/http"
+)
 
 // API to fetch all leave types
-func (rep *Repository) GetAllLeaveTypes(w http.ResponseWriter, r *http.Request) {
+func (rep *Repository) GetAllLeaveType(w http.ResponseWriter, r *http.Request) {
 
 	// Get all leave types form database
 	all, err := rep.App.Models.LeaveType.GetAllLeaveTypes()
@@ -13,12 +16,16 @@ func (rep *Repository) GetAllLeaveTypes(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 
+	log.Println(all)
+
 	// Return answer to front-end
 	answer := jsonResponse{
 		Error:   false,
 		Message: "All Leave Types collected",
 		Data:    all,
 	}
+
+	log.Println(all)
 
 	rep.writeJSON(w, http.StatusAccepted, answer)
 }

@@ -45,6 +45,8 @@ func leavePOST(w http.ResponseWriter, myc httpContextStruct, url string) {
 		showLeaveAdd(w, myc)
 	case "application":
 		showLeaveHome(w, myc)
+	case "report":
+		showLeaveReport(w, myc)
 	default:
 		showLeaveHome(w, myc)
 	}
@@ -59,6 +61,8 @@ func leaveGET(w http.ResponseWriter, myc httpContextStruct, url string) {
 		showLeaveAdd(w, myc)
 	case "application":
 		showLeaveHome(w, myc)
+	case "report":
+		showLeaveReport(w, myc)
 	default:
 		showLeaveHome(w, myc)
 	}
@@ -104,6 +108,16 @@ func showLeaveAdd(w http.ResponseWriter, myc httpContextStruct) {
 	default:
 		var empty any
 		render.RenderTemplate(w, "public.unauthorized.page.gohtml", empty)
+	}
+}
+
+func showLeaveReport(w http.ResponseWriter, myc httpContextStruct) {
+	if myc.Auth {
+		var empty any
+		render.RenderTemplate(w, "user.leave.application.page.gohtml", empty)
+	} else {
+		var empty any
+		render.RenderTemplate(w, "unauthorized.page.gohtml", empty)
 	}
 }
 

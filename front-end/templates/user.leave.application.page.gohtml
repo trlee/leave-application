@@ -20,11 +20,39 @@
               <th>approvedby</th>
               <th>leavedate</th>
               <th>attachments</th>
+              <th>options</th>
           </tr>
       </thead>
       <tbody id="leaveApplicationBody"></tbody>
      </table>
       <br>
+      </div>
+    </div>
+
+    <div class="modal fade" id="updateLeaveApp" tabindex="-1" aria-labelledby="updateLeaveAppLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="updateLeaveAppLabel">Update Leave</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+          </div>
+          <form name="updateLeaveAppForm" id="updateLeaveAppForm">
+          <div class="row mb-3">
+            <div class="col-sm-12">
+              <input type="hidden" id="ID" name="ID" />
+            </div>
+            <div class="col-sm-12">
+              <input type="text" id="updateReason" name="updateReason" />
+            </div>
+          </div>
+          </form>
+          <div class="modal-footer">
+            <a href="#" class="btn btn-danger" id="approveLeaveSubmit"><i class="bi bi-save2-fill"></i> Approve </a>
+            <a href="#" class="btn btn-danger" id="rejectLeaveSubmit"><i class="bi bi-save2-fill"></i> Reject </a>
+            <a href="#" class="btn btn-danger" id="cancelLeaveSubmit"><i class="bi bi-save2-fill"></i> Cancel </a>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

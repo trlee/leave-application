@@ -1,8 +1,6 @@
 package handlers
 
 import (
-	"encoding/json"
-	"leave/pkg/pg"
 	"log"
 	"net/http"
 )
@@ -16,12 +14,13 @@ func (rep *Repository) LeaveReport(w http.ResponseWriter, r *http.Request) {
 		log.Println("error while fetching all leaves", err)
 	}
 
-	type myJsonResp struct {
-		Data []*pg.EmployeeLeave
-	}
-	resp := myJsonResp{
-		Data: all,
+	answer := jsonResponse{
+		Error:   false,
+		Message: "All Employee Leave",
+		Data:    all,
 	}
 
-	json.NewEncoder(w).Encode(&resp)
+	log.Println(all)
+
+	rep.writeJSON(w, http.StatusAccepted, answer)
 }

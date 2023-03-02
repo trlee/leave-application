@@ -252,6 +252,51 @@ func (l *LeaveApplicationTest) ApplyLeave(LeaveApplicationTest LeaveApplicationT
 	}
 }
 
+func (l *LeaveApplication) CancelLeaveApplication(id int, reason string) (bool, error) {
+	log.Println("In Cancel...")
+	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
+	defer cancel()
+	var newID int
+	stmt := `update public."LEAVE_APPLICATION" SET cancel_reason = $1, cancelled = true WHERE id = $2 returning id`
+	err := db.QueryRowContext(ctx, stmt, reason, id).Scan(&newID)
+	if err != nil {
+		log.Println("SQL error: ", err)
+		return false, nil
+	} else {
+		return true, nil
+	}
+}
+
+func (l *LeaveApplication) ApproveLeaveApplication(id int, reason string) (bool, error) {
+	log.Println("In Approve...")
+	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
+	defer cancel()
+	var newID int
+	stmt := `update public."LEAVE_APPLICATION" SET reject_reason = $1, approved = true WHERE id = $2 returning id`
+	err := db.QueryRowContext(ctx, stmt, reason, id).Scan(&newID)
+	if err != nil {
+		log.Println("SQL error: ", err)
+		return false, nil
+	} else {
+		return true, nil
+	}
+}
+
+func (l *LeaveApplication) RejectLeaveApplication(id int, reason string) (bool, error) {
+	log.Println("In Reject...")
+	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
+	defer cancel()
+	var newID int
+	stmt := `update public."LEAVE_APPLICATION" SET reject_reason = $1, approved = false WHERE id = $2 returning id`
+	err := db.QueryRowContext(ctx, stmt, reason, id).Scan(&newID)
+	if err != nil {
+		log.Println("SQL error: ", err)
+		return false, nil
+	} else {
+		return true, nil
+	}
+}
+
 func (l *LeaveType) AddLeave(LeaveType LeaveType) (bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
 	defer cancel()
@@ -263,6 +308,21 @@ func (l *LeaveType) AddLeave(LeaveType LeaveType) (bool, error) {
 		return false, nil
 	} else {
 		log.Print("Inserted successfully: ", newID)
+		return true, nil
+	}
+}
+
+func (l *LeaveType) UpdateLeave(LeaveType LeaveType) (bool, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
+	defer cancel()
+	var newID int
+	stmt := `update public."LEAVE_TYPE_CONFIG" SET name = $2, unpaid = $3, max_limit = $4, entitlement_calculation = $5, gender = $6, attachment_mandatory = $7, encashment_leave = $8 WHERE id = $1 returning id`
+	err := db.QueryRowContext(ctx, stmt, LeaveType.ID, LeaveType.LeaveType, LeaveType.Unpaid, LeaveType.Limit, LeaveType.EntitlementCalculation, LeaveType.Gender, LeaveType.AttachmentMandatory, LeaveType.EncashmentLeave).Scan(&newID)
+	if err != nil {
+		log.Println("SQL error: ", err)
+		return false, nil
+	} else {
+		log.Print("Updated successfully: ", newID)
 		return true, nil
 	}
 }

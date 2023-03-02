@@ -85,8 +85,8 @@
                 </div>
             </div>
             <div class="container-fluid">
-                <div class="row text-end mt-3">
-                <div class="col-sm"><a href="#" class="btn btn-danger" id="openAddLeave" data-bs-toggle="modal" data-bs-target="#addLeave"><i class="bi bi-plus-circle-fill"></i> Add</a></div>
+              <div class="row text-end mt-3">
+              <div class="col-sm"><a href="#" class="btn btn-danger" id="openAddLeave" data-bs-toggle="modal" data-bs-target="#addLeave"><i class="bi bi-plus-circle-fill"></i> Add</a></div>
             </div>
         </nav>
 
@@ -97,123 +97,7 @@
 
         {{end}}
 
-        <!-- modal: Add Leave -->
-            <div class="modal fade" id="addLeave" tabindex="-1" aria-labelledby="addLeaveLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="addLeaveLabel">Add Leave</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
-                  </div>
-                  <form name="addLeaveForm" id="addLeaveForm">
-                  <div class="modal-body">
-                    <!-- WARNING MESSAGE -->
-                    <div class="alert alert-warning mt-3 hide" role="alert" id="warningMessageDiv">
-                      <div class="d-flex justify-content-between">
-                        <div class="flex-grow-1"><h4 class="alert-heading"><i class="bi-exclamation-diamond-fill"></i> Warning!</h4></div>
-                        <div class="flex-shrink-1"><i class="bi-x-circle-fill pointer" id="hideWarningMessage"></i></div>
-                      </div>      
-                      <p id="warningMessageBody">Please you must fill those fields</p>
-                      <hr>
-                      <p class="mb-0 smaller">Please check in on some of those fields below...</p>
-                    </div>
-                    <div class="space"></div>
-                    <!-- card: name -->
-                    <div class="card">
-                      <!-- card header: name  -->
-                      <div class="card-header bg-dark fw-bolder text-white">
-                        <div class="d-flex justify-content-between">
-                          <div class="flex-grow-1"><i class="bi-person-lines-fill"></i> name </div>
-                          <div class="flex-shrink-1"><span class="fw-bolder fst-italic"><small><i class="bi-x-circle-fill" id="nameHide"></i><i class="bi-fullscreen hide" id="nameShow"></i></small></span></div>
-                        </div>    
-                      </div>
-                      <!-- card body: name -->
-                      <div class="card-body" id="nameBodyCard">
-                        <!-- 1st row (name) -->
-                        <div class="row my-3">
-                          <!-- name -->
-                          <div class="col-sm-12">
-                            <input type="text" class="form-control form-control-sm" id="name" name="name" />
-                            <div class="fw-lighter fst-italic smaller mt-1"><i class="bi-shield-fill-exclamation"></i> name </div>
-                            <div class="fw-bolder text-danger fst-italic smaller" id="nameError"></div>
-                          </div>
-                        </div>
-                        <div class="space"></div>
-                      </div>
-                    </div>
-                    <!-- card: leave configurations -->
-                    <div class="card mt-3">
-                      <!-- card header: leave configurations  -->
-                      <div class="card-header bg-dark fw-bolder text-white">
-                         <div class="d-flex justify-content-between">
-                          <div class="flex-grow-1"><i class="bi-person-lines-fill"></i> leave configurations</div>
-                          <div class="flex-shrink-1"><span class="fw-bolder fst-italic"><small><i class="bi-x-circle-fill" id="leaveConfigHide"></i><i class="bi-fullscreen hide" id="leaveConfigShow"></i></small></span></div>
-                        </div>
-                      </div>
-                      <!-- card body: leave configurations -->
-                      <div class="card-body" id="leaveConfigBodyCard">
-                        <!-- leave configurations:  1st row (max limit and entitlement calculation) -->
-                        <div class="row mb-3">
-                          <!-- leave configurations: max limit -->
-                          <div class="col-sm-6">
-                            <input type="text" class="form-control form-control-sm" id="maxLimit" name="maxLimit" />
-                            <div class="fw-lighter fst-italic smaller mt-1"><i class="bi-shield-fill-exclamation"></i> maximum limit </div>
-                            <div class="fw-bolder text-danger fst-italic smaller" id="maxLimitError"></div>
-                          </div>
-                          <div class="col-sm-6">
-                            <input type="text" class="form-control form-control-sm" id="entitlementCalc" name="entitlementCalc" />
-                            <div class="fw-lighter fst-italic smaller mt-1"><i class="bi-shield-fill-exclamation"></i> entitlement calculation </div>
-                            <div class="fw-bolder text-danger fst-italic smaller" id="entitlementCalcError"></div>
-                          </div>      
-                        </div>
-                        <!-- leave configurations:  2nd row (gender) -->
-                        <div class="row mb-3">
-                          <!-- leave configurations: gender -->
-                          <div class="col-sm-6">
-                              <select class="form-control form-control-sm" id="gender" name="gender" />
-                              <option selected hidden value=""></option>
-                              <option value=1>Female</option>
-                              <option value=2>Male</option>
-                              <option value=3>Both</option>
-                              </select>
-                              <div class="fw-lighter fst-italic smaller mt-1"><i class="bi-shield-fill-exclamation"></i> gender </div>
-                              <div class="fw-bolder text-danger fst-italic smaller" id="genderError"></div>
-                          </div>
-                        </div>
-                        <!-- leave configurations:  3rd row ( checkboxes ) -->
-                        <div class="row mb-3">
-                          <!-- leave configurations: checkboxes -->
-                          <div class="col-sm-6">
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="0" id="isUnpaid" name="isUnpaid">
-                              <label class="form-check-label fw-lighter fst-italic smaller" for="isUnpaid">is unpaid</label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="0" id="isAttachmentMandatory" name="isAttachmentMandatory">
-                              <label class="form-check-label fw-lighter fst-italic smaller" for="isAttachmentMandatory">is attachment mandatory</label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="0" id="isEncashmentLeave" name="isEncashmentLeave">
-                              <label class="form-check-label fw-lighter fst-italic smaller" for="isEncashmentLeave">is encashment leave</label>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="space"></div>
-                      </div>
-                    <div class="space"></div>
-                  </div>
-                  </form>
-                  <div class="modal-footer">
-                  <a href="#" class="btn btn-danger" id="addLeaveSubmit"><i class="bi bi-save2-fill"></i> Add </a>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
-                  </div>
-                </div>
-              </div>
-
         <script src="/static/js/common/Main_helpers.js"></script>
-        <script src="/static/js/leave/add/LeaveAdd_Helpers.js"></script>
-        <script src="/static/js/leave/add/LeaveAdd_API.js"></script>
-        <script src="/static/js/leave/add/leaveAdd.js"></script>
         {{block "js" .}}
 
         {{end}}

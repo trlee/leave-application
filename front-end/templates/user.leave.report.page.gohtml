@@ -1,20 +1,26 @@
-{{template "base" . }}
+{{template "leave" . }}
 
 {{define "content"}}
-
-<div class="container-fluid">
     <div class="row">
         <div class="col-sm">
         <table id="leaveReport" class="display stripe" style="width:100%">
         <thead>
             <tr>
-
+              <th>id</th>
+              <th>leavetypeid</th>
+              <th>entitled</th>
+              <th>taken</th>
+              <th>creditexpired</th>
             </tr>
         </thead>
         <tbody id="leaveReportBody></tbody>
         </table>
         <br>
-    </div?
-</div>
+    </div>
+{{end}}
 
+{{define "js"}}
+<script src="/static/js/leave/report/LeaveReport_helpers.js"></script>
+<script src="/static/js/leave/report/LeaveReport_API.js"></script>
+<script src="/static/js/leave/report/leaveReport.js"></script>
 {{end}}

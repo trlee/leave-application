@@ -1,5 +1,3 @@
-broker = "http:/localhost:8881/"
-
 class LeaveAdd_API {
     // add a new leave type
     async addLeave(stringifiedJSON) {
