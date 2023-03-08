@@ -18,5 +18,10 @@ func multiplexer() http.Handler {
 	mux.HandleFunc("/approveLeaveApplication", handlers.Repo.ApproveLeaveApplication)
 	mux.HandleFunc("/rejectLeaveApplication", handlers.Repo.RejectLeaveApplication)
 	mux.HandleFunc("/leaveTypeUpdate", handlers.Repo.UpdateLeave)
+	mux.HandleFunc("/leaveTypeDelete", handlers.Repo.DeleteLeave)
+	mux.HandleFunc("/leaveApplicationDelete", handlers.Repo.DeleteLeaveApplication)
+
+	// mux.HandleFunc("/insertClaimAttachment/", handlers.Repo.InsertLeaveAttachments)
+	mux.HandleFunc("/leave/uploadLeaveAttachment/", handlers.Repo.UploadLeaveAttachment)
 	return mux
 }

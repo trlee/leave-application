@@ -19,7 +19,8 @@ class LeaveApplication_Helpers{
                              <td>${element.approvedBy}</td>
                              <td>${element.leaveDate}</td>
                              <td>${element.attachments}</td>
-                             <td><a href="#" class="btn btn-danger" id="openUpdateLeaveApp" data-bs-toggle="modal" data-bs-target="#updateLeaveApp" onclick="return showUpdate(${element.ID})"></i>Update</a></td>`
+                             <td><a href="#" class="btn btn-danger" id="openUpdateLeaveApp" data-bs-toggle="modal" data-bs-target="#updateLeaveApp" onclick="return showUpdate(${element.ID})"></i>Update</a></td>
+                             <td><a href="#" class="btn btn-danger" id="deleteLeave" onclick="return deleteValues(${element.ID})"></i>Delete</a></td>`
             target.appendChild(opt)
         })
     }

@@ -1,13 +1,13 @@
 const ReportHelpers = new LeaveReport_Helpers(),
       ReportAPI = new LeaveReport_API(),
       dt = 'leaveReport',
-      dtBody = 'leaveTypeBody'
+      dtBody = 'leaveReportBody'
 
 window.addEventListener('DOMContentLoaded', () => {
     // fetch all leave types & update DOM
     ReportAPI.getAllLeaveReport().then(resp => {
         console.log(resp)
-        TypeHelpers.insertRows(dtBody, resp.data)
-        TypeHelpers.triggerDT(dt, dtBody)
+        ReportHelpers.insertRows(dtBody, resp.data)
+        ReportHelpers.triggerDT(dt, dtBody)
     })
 })

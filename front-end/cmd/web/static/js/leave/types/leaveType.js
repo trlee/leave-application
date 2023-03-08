@@ -36,3 +36,10 @@ function showUpdateValues(ID,leaveType,unpaid,limit,entitlementCalculation,gende
     document.updateLeaveForm.isEncashmentLeave.value = + encashmentLeave ? 1:0
     return true
 }
+
+function deleteValues(ID) {
+    TypeAPI.deleteLeaveType(ID).then(resp => {
+        console.log(resp)
+    })
+    return true
+}

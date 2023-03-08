@@ -3,8 +3,11 @@ package handlers
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io"
+	"log"
 	"net/http"
+	"os"
 )
 
 // readJSON tries to read the body of a request and converts it into JSON
@@ -18,6 +21,8 @@ func (rep *Repository) readJSON(w http.ResponseWriter, r *http.Request, data any
 	if err != nil {
 		return err
 	}
+
+	log.Println("Data: ", data)
 
 	err = dec.Decode(&struct{}{})
 	if err != io.EOF {
@@ -60,4 +65,43 @@ func (rep *Repository) errorJSON(w http.ResponseWriter, err error, status ...int
 	payload.Message = err.Error()
 
 	return rep.writeJSON(w, statusCode, payload)
+}
+
+// function to check if directory exists or not and return false; if exist it will return true
+func directoryExist(dir string) (bool, error) {
+
+	//
+	if _, err := os.Stat(dir); os.IsNotExist(err) {
+		log.Printf("Directory %s does not exist\n", dir)
+		return false, nil
+	} else if err != nil {
+		log.Printf("Error checking if directory %s exists, Please check : %v\n", dir, err)
+		return false, err
+	} else {
+		fmt.Printf("Directory %s exists\n", dir)
+		return true, nil
+	}
+}
+
+// This function will attemps to check directory exist, if not create the directory
+func (rep *Repository) Mkdir(dir string) (string, error) {
+
+	// Check directory exist
+
+	exist, err := directoryExist(dir)
+	if err != nil {
+		log.Println("Error checking directory exist, Please check for permission : ", err)
+		return dir, err
+	}
+
+	if !exist {
+		// create directory
+		err := os.Mkdir(dir, 0755)
+		if err != nil {
+			log.Println("Error creating directory, Please check : ", err)
+			return dir, err
+		}
+	}
+
+	return dir, nil
 }

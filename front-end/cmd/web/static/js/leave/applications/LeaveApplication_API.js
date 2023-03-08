@@ -42,4 +42,15 @@ class LeaveApplication_API {
         const result = await response.json()
         return result
   }
+
+  async deleteLeaveApplication(ID) {
+    const url = broker + 'leaveApplicationDelete'
+    const body = {
+        method: 'POST',
+        body: JSON.stringify(ID),
+    }
+    const response = await fetch(url, body)
+    const result = await response.json()
+    return result
+  }
 }

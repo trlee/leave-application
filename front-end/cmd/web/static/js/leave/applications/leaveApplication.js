@@ -52,3 +52,10 @@ function showUpdate(id) {
     document.updateLeaveAppForm.ID.value = id
     return true
 }
+
+function deleteValues(ID) {
+    ApplicationAPI.deleteLeaveApplication(ID).then(resp => {
+        console.log(resp)
+    })
+    return true
+}

@@ -15,7 +15,8 @@ class LeaveType_Helpers {
                              <td>${element.gender}</td>
                              <td>${element.attachmentMandatory}</td>
                              <td>${element.encashmentLeave}</td>
-                             <td><a href="#" class="btn btn-danger" id="openUpdateLeave" data-bs-toggle="modal" data-bs-target="#updateLeave" onclick="return showUpdateValues(${element.ID},'${element.leaveType}',${element.unpaid},${element.limit},${element.entitlementCalculation},${element.gender},${element.attachmentMandatory},${element.encashmentLeave})"></i>Update</a></td>`
+                             <td><a href="#" class="btn btn-danger" id="openUpdateLeave" data-bs-toggle="modal" data-bs-target="#updateLeave" onclick="return showUpdateValues(${element.ID},'${element.leaveType}',${element.unpaid},${element.limit},${element.entitlementCalculation},${element.gender},${element.attachmentMandatory},${element.encashmentLeave})"></i>Update</a></td>
+                             <td><a href="#" class="btn btn-danger" id="deleteLeave" onclick="return deleteValues(${element.ID})"></i>Delete</a></td>`
             target.appendChild(opt)
         });
     }

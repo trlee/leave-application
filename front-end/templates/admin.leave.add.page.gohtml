@@ -21,6 +21,7 @@
           <th>attachmentmandatory</th>
           <th>encashmentleave</th>
           <th>options</th>
+          <th>delete</th>
         </tr>
       </thead>
       <tbody id="leaveTypeBody"></tbody>
@@ -120,14 +121,17 @@
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" id="isUnpaid" name="isUnpaid">
                   <label class="form-check-label fw-lighter fst-italic smaller" for="isUnpaid">is unpaid</label>
+                  <div class="fw-bolder text-danger fst-italic smaller" id="isUnpaidError"></div>
                 </div>
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" id="isAttachmentMandatory" name="isAttachmentMandatory">
                   <label class="form-check-label fw-lighter fst-italic smaller" for="isAttachmentMandatory">is attachment mandatory</label>
+                  <div class="fw-bolder text-danger fst-italic smaller" id="isAttachmentMandatoryError"></div>
                 </div>
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" id="isEncashmentLeave" name="isEncashmentLeave">
                   <label class="form-check-label fw-lighter fst-italic smaller" for="isEncashmentLeave">is encashment leave</label>
+                  <div class="fw-bolder text-danger fst-italic smaller" id="isEncashmentLeaveError"></div>
                 </div>
               </div>
             </div>
@@ -236,16 +240,19 @@
               <!-- leave configurations: checkboxes -->
               <div class="col-sm-6">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="isUnpaid" name="isUnpaid">
+                  <input class="form-check-input" type="checkbox" value="1" id="isUnpaid" name="isUnpaid">
                   <label class="form-check-label fw-lighter fst-italic smaller" for="isUnpaid">is unpaid</label>
+                  <div class="fw-bolder text-danger fst-italic smaller" id="isUnpaidError"></div>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="isAttachmentMandatory" name="isAttachmentMandatory">
+                  <input class="form-check-input" type="checkbox" value="1" id="isAttachmentMandatory" name="isAttachmentMandatory">
                   <label class="form-check-label fw-lighter fst-italic smaller" for="isAttachmentMandatory">is attachment mandatory</label>
+                  <div class="fw-bolder text-danger fst-italic smaller" id="isAttachmentMandatoryError"></div>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="isEncashmentLeave" name="isEncashmentLeave">
+                  <input class="form-check-input" type="checkbox" value="1" id="isEncashmentLeave" name="isEncashmentLeave">
                   <label class="form-check-label fw-lighter fst-italic smaller" for="isEncashmentLeave">is encashment leave</label>
+                  <div class="fw-bolder text-danger fst-italic smaller" id="isEncashmentLeaveError"></div>
                 </div>
               </div>
             </div>

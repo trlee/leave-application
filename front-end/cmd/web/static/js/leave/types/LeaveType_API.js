@@ -18,4 +18,15 @@ class LeaveType_API {
         const result = await response.json()
         return result
     }
+
+    async deleteLeaveType(ID) {
+        const url = broker + 'leaveTypeDelete'
+        const body = {
+            method: 'POST',
+            body: JSON.stringify(ID),
+        }
+        const response = await fetch(url, body)
+        const result = await response.json()
+        return result
+    }
 }

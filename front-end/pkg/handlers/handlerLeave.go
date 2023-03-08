@@ -114,7 +114,7 @@ func showLeaveAdd(w http.ResponseWriter, myc httpContextStruct) {
 func showLeaveReport(w http.ResponseWriter, myc httpContextStruct) {
 	if myc.Auth {
 		var empty any
-		render.RenderTemplate(w, "user.leave.application.page.gohtml", empty)
+		render.RenderTemplate(w, "user.leave.report.page.gohtml", empty)
 	} else {
 		var empty any
 		render.RenderTemplate(w, "unauthorized.page.gohtml", empty)

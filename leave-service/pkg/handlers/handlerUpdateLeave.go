@@ -11,7 +11,7 @@ type payloadUpdateLeaveType struct {
 	ID                     string `json:"ID"`
 	LeaveType              string `json:"name"`
 	Limit                  string `json:"maxLimit"`
-	EntitlementCalculation string `json:"entitlementCalculation"`
+	EntitlementCalculation string `json:"entitlementCalc"`
 	Gender                 string `json:"gender"`
 	Unpaid                 string `json:"isUnpaid"`
 	AttachmentMandatory    string `json:"isAttachmentMandatory"`
@@ -35,10 +35,14 @@ func (rep *Repository) UpdateLeave(w http.ResponseWriter, r *http.Request) {
 }
 
 func convertPayloadUpdatedLeaveType(p payloadUpdateLeaveType) pg.LeaveType {
+	log.Println("ECalc", p.EntitlementCalculation)
 	id, _ := strconv.Atoi(p.ID)
 	limit, _ := strconv.Atoi(p.Limit)
 	gender, _ := strconv.Atoi(p.Gender)
-	entitlementCalc, _ := strconv.ParseFloat(p.EntitlementCalculation, 32)
+	entitlementCalc, err := strconv.ParseFloat(p.EntitlementCalculation, 32)
+	if err != nil {
+		log.Println("ERROR! ", err)
+	}
 	unpaid, _ := strconv.ParseBool(p.Unpaid)
 	attachmentMand, _ := strconv.ParseBool(p.AttachmentMandatory)
 	encashmentLeave, _ := strconv.ParseBool(p.EncashmentLeave)

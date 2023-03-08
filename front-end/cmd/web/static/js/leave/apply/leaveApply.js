@@ -22,10 +22,33 @@ window.addEventListener('DOMContentLoaded', () => {
             })
         }
     })
+
+    const uploadButton = document.getElementById("uploadButton");
+    uploadButton.addEventListener('click', (event) => {
+        event.preventDefault()
+        let fileInput = document.getElementById("attachments")
+        let files = fileInput.files;
+        const formData = new FormData();
+
+        for (let i = 0; i < files.length; i++) {
+            let file = files[i];
+            formData.append("attachments[]", file);
+        }
+        API.submitAttachment(formData).then(resp => {
+            console.log(resp.data)
+            if (!resp.error) {
+                Helpers.populateInputHidden("filenamesTobeInsert", resp.data)
+                console.log(resp.data)
+                alert("Successfully uploaded")
+            } else {
+                alert("Fail to upload")
+            }
+        })
+    })
     
     const showCard = true,
     hideCard = false,
-    myCards = ['employeeInfo', 'leaveInfo'];
+    myCards = ['employeeInfo', 'leaveInfo', 'attachment'];
     
     myCards.forEach(card => {
         document.querySelector(`#${card}Hide`).addEventListener('click', () => { Common.displayCardByID(card, hideCard) })

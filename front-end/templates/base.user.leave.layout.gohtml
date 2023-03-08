@@ -201,6 +201,44 @@
                 <div class="space"></div>
               </div>
               </form>
+
+              <div class="fileValues">
+                <input type="text" id="filenamesTobeInsert" value="">
+              </div>
+
+              <form method="POST" id="uploadForm">
+                <!-- Card: Attacment-->
+                <div class="card mt-3">
+                  <!-- Card Header: Attachment  -->
+                  <div class="card-header bg-dark fw-bolder text-white">
+                    <div class="d-flex justify-content-between">
+                      <div class="flex-grow-1"><i class="bi-person-lines-fill"></i> Attachments</div>
+                      <div class="flex-shrink-1"><span class="fw-bolder fst-italic"><small><i class="bi-x-circle-fill"
+                      id="attachmentHide"></i><i class="bi-fullscreen hide" id="attachmentShow"></i></small></span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Card Body: Attachment -->
+                  <div class="card-body" id="attachmentBodyCard"> <!-- to be modify -->
+                    <!-- Description -->
+                    <div class="row mb-3">
+                      <div class="form-group">
+                        <div class="col-mb-3">
+                          <label for="attachments" class="form-label">Upload Attachments</label>
+                          <input type="file" class="form-control" name="attachments" id="attachments" multiple>
+                        </div>
+                        <br>
+                        <div class="col-md-12 d-flex justify-content-end">
+                          <!-- <button type="submit" id="uploadButton" class="btn btn-primary">Upload</button> -->
+                          <button type="button" id="uploadButton" class="btn btn-primary">Upload</button>
+                        </div>
+                      </div>
+                      <div class="col-sm-4"></div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
               <div class="modal-footer">
               <a href="#" class="btn btn-danger" id="applyLeaveSubmit"><i class="bi bi-save2-fill"></i> Apply </a>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
